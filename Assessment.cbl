@@ -20,6 +20,7 @@
            PERFORM CALCULATE-AVERAGE
            PERFORM DISPLAY-RESULTS
            STOP RUN
+      * The full-stop, terminating the paragraph was missing, corrected this!
            .
 
        INITIALIZE-DATA.
@@ -36,6 +37,8 @@
            MOVE 8 TO WS-Skill-Rating(4)
 
            MOVE "Debugging" TO WS-Skill-Name(5)
+      * The value was moved erroneously to table element 6
+      * This level is out of bound and was changed to 5
            MOVE 9 TO WS-Skill-Rating(5)
            .
 
