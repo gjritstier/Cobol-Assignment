@@ -1,6 +1,8 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. SkillAssessment.
 
+       ENVIRONMENT DIVISION.
+       
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 WS-Skill-Table.
@@ -17,7 +19,8 @@
            PERFORM INITIALIZE-DATA
            PERFORM CALCULATE-AVERAGE
            PERFORM DISPLAY-RESULTS
-           STOP RUN.
+           STOP RUN
+           .
 
        INITIALIZE-DATA.
            MOVE "Data Structures" TO WS-Skill-Name(1)
@@ -33,13 +36,15 @@
            MOVE 8 TO WS-Skill-Rating(4)
 
            MOVE "Debugging" TO WS-Skill-Name(5)
-           MOVE 9 TO WS-Skill-Rating(6)
+           MOVE 9 TO WS-Skill-Rating(5)
+           .
 
        CALCULATE-AVERAGE.
            PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > WS-Count
                ADD WS-Skill-Rating(IDX) TO WS-Total-Rating
            END-PERFORM
-           COMPUTE WS-Average-Rating = WS-Total-Rating / WS-Count.
+           COMPUTE WS-Average-Rating = WS-Total-Rating / WS-Count
+           .
 
        DISPLAY-RESULTS.
            DISPLAY "COBOL Skill Assessment Results:"
@@ -47,5 +52,6 @@
                DISPLAY "Skill: " WS-Skill-Name(IDX)
                DISPLAY "Rating: " WS-Skill-Rating(IDX)
            END-PERFORM
-           DISPLAY "Average Skill Rating: " WS-Average-Rating.
+           DISPLAY "Average Skill Rating: " WS-Average-Rating
+           .
 		   
